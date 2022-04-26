@@ -64,11 +64,27 @@ function splitCode() {
 
     let regiao_origem = buscaRegiaoByCod(codes[0]);
     let regiao_destino = buscaRegiaoByCod(codes[1]);
+    let tipo_produto = typeProductByCod(codes[4]);
+    let cod_vendedor = codes[3]
+
+    if(tipo_produto == false) {
+      array_cod_invalidos.push(codes);
+      continue;
+    }
     
     if(regiao_origem == false || regiao_destino == false) {
       array_cod_invalidos.push(codes);
       continue;
     }
+
+    if(cod_vendedor == 367) {
+      return false;
+    }
+  
+    if(tipo_produto == 1 && regiao_origem >= 201 && regiao_origem <= 299) {
+      return false;
+    }
+
   
     let obj = {
       cod_origem: codes[0],
@@ -77,7 +93,8 @@ function splitCode() {
       regiao_destino: regiao_destino,
       cod_loggi: codes[2],
       cod_vendedor: codes[3],
-      tipo_produto: codes[4]
+      cod_tipo_produto: codes[4],
+      tipo_produto: tipo_produto
     };
     
     newArray3.push(obj);
@@ -87,6 +104,29 @@ function splitCode() {
   console.log(newArray3)
 
 }  
+
+
+
+function typeProductByCod(cod) {
+  cod = parseInt(cod);
+
+  if(cod == 1) {
+  return "Jóias";
+}
+if(cod == 111){
+return "Livros";
+}
+if(cod == 333){
+return "Eletrônicos";
+}
+if(cod == 555){
+return "Bebidas";
+}
+if(cod == 888){
+return "Brinquedos" ;
+}
+return false;
+}
 
 function buscaRegiaoByCod(cod){
   cod = parseInt(cod);
@@ -108,5 +148,7 @@ function buscaRegiaoByCod(cod){
   } 
   return false;
 }
-        
+
+  
+
 splitCode()

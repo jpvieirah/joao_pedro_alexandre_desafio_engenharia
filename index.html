@@ -4,10 +4,45 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Desafio Tecnico</title>
 </head>
 <body>
-    
+    <div class="lista_buttons">
+        <button onclick="somaPorRegiaoDestino()">Questão 1</button>
+        <button onclick="listaPacotesVálidosInválidos()">Questão 2</button>
+        <button onclick="buscaPacotesSulBrinquedos()">Questão 3</button>
+        <button onclick="listaPorRegiaoDestino()">Questão 4</button>
+        <button onclick="separaPorVendedor()">Questão 5</button>
+        <button onclick="listaPorDestinoTipo()">Questão 6</button>
+        <button onclick="pacotesDestinoCentroOesteNorte()">Questão 7</button>
+        <button onclick="pacotesDestinoCentroOesteNordesteNorte()">Questão 8</button>
+        <button onclick="listarInvalidos()">Questão 10</button>
+    </div>
+    <div class="resultado">
+        <pre>
+            <code class="json_resultado"></code>            
+        </pre>
+    </div>
 </body>
 <script src="index.js"></script>
+
+<style>
+    body{
+        display: flex;
+    }
+
+    .lista_buttons{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .lista_buttons button{
+        margin: 5px;
+    }
+
+    .resultado{
+        margin-left: 15px;
+        padding: 5px;
+    }
+</style>
 </html>
